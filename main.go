@@ -37,6 +37,37 @@ func main() {
 	repeatMe("nico", "pedro", "marco", "hello")
 
 	fmt.Println(lenAndUpperNaked("pedro"))
+
+	total := superAdd(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+	fmt.Println(total)
+
+	fmt.Println(canIDrink(16))
+
+	fmt.Println(canIDrinkSwitch(16))
+}
+
+func canIDrink(age int) bool {
+	if koreanAge := age + 2; koreanAge < 18 {
+		return false
+	}
+	return true
+}
+
+/**
+switch use if, else if, else if, else if, else if
+*/
+func canIDrinkSwitch(age int) bool {
+	defer fmt.Println("I'm Done!")
+	switch koreanAge := age + 2; {
+	case koreanAge < 18:
+		return false
+	case koreanAge == 18:
+		return true
+	case koreanAge > 50:
+		return false
+	}
+	return false
 }
 
 func repeatMe(words ...string) {
@@ -53,6 +84,19 @@ func lenAndUpperNaked(name string) (length int, upperName string) {
 
 func multiply(a, b int) int {
 	return a * b
+}
+
+// range give array index
+func superAdd(numbers ...int) int {
+	total := 0
+	for _, number := range numbers {
+		total += number
+	}
+
+	//for i := 0; i < len(numbers); i++ {
+	//	fmt.Println(numbers[i])
+	//}
+	return total
 }
 
 func lenAndUpper(name string) (int, string) {
